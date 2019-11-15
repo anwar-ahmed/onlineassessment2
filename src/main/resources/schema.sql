@@ -1,0 +1,47 @@
+DROP TABLE IF EXISTS USER;
+ 
+CREATE TABLE USER (
+  email VARCHAR(250)   PRIMARY KEY,
+  password VARCHAR(250) NOT NULL,
+  firstname VARCHAR(250) NOT NULL,
+  lastname VARCHAR(250) NOT NULL,
+  usertype VARCHAR(250) NOT NULL
+);
+
+
+drop table if exists TEST_DETAIL;
+
+create table TEST_DETAIL(
+	id VARCHAR(250) AUTO_INCREMENT  PRIMARY KEY,
+	testdate VARCHAR(250) NOT NULL,
+	assessment VARCHAR(250) NOT NULL,
+	testmark NUMBER NOT NULL,
+	email VARCHAR(250),
+	totalmark VARCHAR(250) NOT NULL,
+	result VARCHAR(250) NOT NULL
+);
+
+
+drop table if exists ASSESSMENT_CORRECT_OPTIONS;
+
+create table ASSESSMENT_CORRECT_OPTIONS(
+	id VARCHAR(250) AUTO_INCREMENT  PRIMARY KEY,
+	assessmentname VARCHAR(250) NOT NULL,
+	question VARCHAR(250) NOT NULL,
+	correctoption VARCHAR(250) NOT NULL
+);
+
+
+
+drop table if exists QUESTIONS_OPTIONS;
+
+create table QUESTIONS_OPTIONS(
+	id VARCHAR(250) AUTO_INCREMENT  PRIMARY KEY,
+	assessmentname VARCHAR(250) NOT NULL,
+	questionid VARCHAR(250) NOT NULL,
+	questiontext VARCHAR(250) NOT NULL,
+	option1 VARCHAR(250) NOT NULL,
+	option2 VARCHAR(250) NOT NULL,
+	option3 VARCHAR(250) NOT NULL,
+	option4 VARCHAR(250) NOT NULL
+);

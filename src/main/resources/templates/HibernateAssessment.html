@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head lang="en">
+      <meta charset="UTF-8" />
+      <title>Hibernate Assessment</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+  <body>
+      <h1>Hibernate Assessment</h1>
+      <form action ="#" th:action="@{/evaluate/hibernate/test}" method = "POST"  th:object="${assessmentAnswersForm}" >
+            <div th:each="questionChoice,iStat : ${questionsOptions}">
+                 <label th:text="${questionChoice.questionText}" ></label> <br/>                   
+               	   <input th:id = "${'Q' + (iStat.index + 1) + '-Opt1' }" th:field ="*{assessmentAnswers[__${questionChoice.questionId}__]}"  type = "radio" th:value = "${questionChoice.option1}"  />
+                  	<label th:for = "${'Q' + (iStat.index + 1) + '-Opt1' }" th:text= "${questionChoice.option1}"></label><br/>
+                  	<input th:id = "${'Q' + (iStat.index + 1) + '-Opt2' }" th:field ="*{assessmentAnswers[__${questionChoice.questionId}__]}"  type = "radio" th:value = "${questionChoice.option2}"  />
+                  	<label th:for = "${'Q' + (iStat.index + 1) + '-Opt2' }" th:text= "${questionChoice.option2}"></label><br/>
+                  	<input th:id = "${'Q' + (iStat.index + 1) + '-Opt3' }" th:field ="*{assessmentAnswers[__${questionChoice.questionId}__]}"  type = "radio" th:value = "${questionChoice.option3}" />
+                 	 <label th:for = "${'Q' + (iStat.index + 1) + '-Opt3' }" th:text= "${questionChoice.option3}"></label><br/>
+                 	 <input th:id = "${'Q' + (iStat.index + 1) + '-Opt4' }" th:field ="*{assessmentAnswers[__${questionChoice.questionId}__]}"  type = "radio" th:value = "${questionChoice.option4}"  />
+                 	 <label th:for = "${'Q' + (iStat.index + 1) + '-Opt4' }" th:text= "${questionChoice.option4}"></label><br/><br/>
+
+            </div><br/>         
+
+                  <input id="submithibernate" type = "submit" value = "Submithibernate"/>
+
+      </form>
+   </body>
+</html>

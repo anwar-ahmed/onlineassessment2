@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+	 <meta charset="UTF-8" />
+    <title>All User Details</title>
+    <style>
+    	table, th, td {
+  border: 1px solid black;
+}
+    
+    </style>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(users)}">
+        <h2>List of All Users</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email ID</th>
+                <th>User Type</th>
+            </tr>
+            <tr th:each="user,rowstat : ${users}">
+                <td th:id="'firstName' + ${rowstat.index + 1}" th:text="${user.firstname}"></td>
+                <td th:id="'lastName' + ${rowstat.index + 1}" th:text="${user.lastname}"></td>
+                <td th:id="'email' + ${rowstat.index + 1}" th:text="${user.email}"></td>
+                <td th:id="'userType' + ${rowstat.index + 1}" th:text="${user.usertype}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

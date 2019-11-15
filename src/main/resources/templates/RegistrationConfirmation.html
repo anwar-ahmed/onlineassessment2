@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head lang="en">
+      <meta charset="UTF-8" />
+      <title>Registration Confirmation</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+      <h1 id='msg'>Registered Successfully!!!</h1>
+      <br/>
+      <span th:text="${user.firstname + ' ' + user.lastname}"></span>
+      <br/><br/>
+      <a th:href="@{/index.html}">LOGIN</a>     
+   </body>
+</html>

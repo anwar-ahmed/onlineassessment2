@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+	 <meta charset="UTF-8" />
+    <title>All Tests Details</title>
+    <style>
+    	table, th, td {
+  border: 1px solid black;
+}
+    
+    </style>
+</head>
+<body>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(testdetails)}">
+        <label>List of Candidates and Tests</label>
+        <table class="table table-striped">
+            <tr>
+                <th>Test Date</th>
+                <th>Assessment</th>
+                <th>Test Marks</th>
+                <th>Email ID</th>
+                <th>Total Mark</th>
+                <th>Result</th>
+            </tr>
+            <tr th:each="testdetail,rowstat : ${testdetails}">
+                <td th:id="'testDate' + ${rowstat.index + 1}" th:text="${testdetail.testdate}"></td>
+                <td th:id="'assessment' + ${rowstat.index + 1}" th:text="${testdetail.assessment}"></td>
+                <td th:id="'marks' + ${rowstat.index + 1}" th:text="${testdetail.testmark}"></td>
+                <td th:id="'email' + ${rowstat.index + 1}" th:text="${testdetail.email}"></td>
+                <td th:id="'totalMarks' + ${rowstat.index + 1}" th:text="${testdetail.totalmark}"></td>
+                 <td th:id="'result' + ${rowstat.index + 1}" th:text="${testdetail.result}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
